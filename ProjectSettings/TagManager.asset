@@ -16,6 +16,7 @@ TagManager:
   - GemRed
   - GemGreen
   - Star
+  - DepressedCharacter
   layers:
   - Default
   - TransparentFX
