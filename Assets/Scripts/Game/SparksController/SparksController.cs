@@ -65,10 +65,7 @@ public class SparksController : MonoBehaviour
                 break;
         }
     }
-    private void OnMouseDown()
-    {
 
-    }
     private bool IsDragging, IsReleasingObj, IsCollidingWiththeMatched;
 
     private void OnMouseDrag()
@@ -79,14 +76,9 @@ public class SparksController : MonoBehaviour
         IsDragging = true;
     }
 
-    private void OnMouseOver()
-    {
-        
-    }
-
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.name == this.name)
+        if (collision.tag == this.tag)
         {
             if (IsDragging)
             {
@@ -111,11 +103,15 @@ public class SparksController : MonoBehaviour
         IsDragging = false;
         IsReleasingObj = true;
 
-        if (m_SparkIconPreview.activeSelf && null != m_CollidedSpark)
+        if (m_SparkType != SparksType.Star)
         {
-            m_Controller.CalculateScore(SparkValue, m_CollidedSpark.GetComponent<SparksController>().SparkValue);
-            m_Controller.MergeObject(this.gameObject, m_CollidedSpark);
+            if (m_SparkIconPreview.activeSelf && null != m_CollidedSpark)
+            {
+                m_Controller.CalculateScore(SparkValue, m_CollidedSpark.GetComponent<SparksController>().SparkValue);
+                m_Controller.MergeObject(this.gameObject, m_CollidedSpark);
+            }
         }
+
     }
 
 }
