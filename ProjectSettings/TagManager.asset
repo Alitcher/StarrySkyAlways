@@ -41,3 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: BG
+    uniqueID: 1990824051
+    locked: 0
+  - name: Sparks
+    uniqueID: 582808471
+    locked: 0
+  - name: Character
+    uniqueID: 1192536471
+    locked: 0
