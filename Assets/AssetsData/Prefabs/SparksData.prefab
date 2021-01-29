@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af1ba4bcd5943fa4d972b8c816a670f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SparksContainer:
+  SparksContainer:
   - {fileID: 6072154310352938932, guid: edba9899d259f1548ac759d048e4da84, type: 3}
   - {fileID: 2368371279778454245, guid: 8e431d68cf3035b4e94dd414dfea4aab, type: 3}
   - {fileID: 7146216308660468805, guid: bdb64bd384b8f8949b04251031774296, type: 3}
@@ -56,3 +56,5 @@ MonoBehaviour:
   - {fileID: 2720737974745118326, guid: f258c809d05616e49bbd5ebac4f0f000, type: 3}
   - {fileID: 4753140076446471351, guid: 3058312a22d1a974b910266b97758df0, type: 3}
   - {fileID: 2901909289532251531, guid: b0386acd7a489ba438dd0df251497adb, type: 3}
+  Blackhole: {fileID: 6372780727506518213, guid: a0fd0b6214359224788a86321ef3a0fb,
+    type: 3}
