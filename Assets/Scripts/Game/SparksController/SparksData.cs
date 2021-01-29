@@ -2,7 +2,8 @@
 
 public class SparksData: MonoBehaviour
 {
-    public GameObject[] m_SparksContainer;
+    public GameObject[] SparksContainer;
+    public GameObject Blackhole;
 
 }
 

@@ -29,10 +29,16 @@ public class GameControlManager : MonoBehaviour
         {
             Destroy(collidedSpark);
             GameObject newSparks = Instantiate(EmergedSparks(currentDraggingSpark.GetComponent<SparksController>().m_SparkType), currentDraggingSpark.transform.position, Quaternion.identity);
-            newSparks.name = m_SparkData.m_SparksContainer[1].name;
+            newSparks.name = m_SparkData.SparksContainer[1].name;
             Destroy(currentDraggingSpark);
         }
 
+    }
+
+    public void GiveSparkToCharacter(GameObject currentDraggingSpark)
+    {
+        currentDraggingSpark.GetComponent<BoxCollider2D>().enabled = false;
+        Destroy(currentDraggingSpark.gameObject);
     }
 
     public GameObject EmergedSparks(SparksType type)
@@ -40,34 +46,34 @@ public class GameControlManager : MonoBehaviour
         switch (type)
         {
             case SparksType.Rock:
-                return m_SparkData.m_SparksContainer[1];
+                return m_SparkData.SparksContainer[1];
             case SparksType.MoonGold:
-                return m_SparkData.m_SparksContainer[2];
+                return m_SparkData.SparksContainer[2];
             case SparksType.MoonWhite:
-                return m_SparkData.m_SparksContainer[3];
+                return m_SparkData.SparksContainer[3];
             case SparksType.HeartRed:
-                return m_SparkData.m_SparksContainer[4];
+                return m_SparkData.SparksContainer[4];
             case SparksType.HeartBlack:
-                return m_SparkData.m_SparksContainer[5];
+                return m_SparkData.SparksContainer[5];
             case SparksType.AppleRed:
-                return m_SparkData.m_SparksContainer[6];
+                return m_SparkData.SparksContainer[6];
             case SparksType.AppleBlack:
-                return m_SparkData.m_SparksContainer[7];
+                return m_SparkData.SparksContainer[7];
             case SparksType.CherryRed:
-                return m_SparkData.m_SparksContainer[8];
+                return m_SparkData.SparksContainer[8];
             case SparksType.CherryBlack:
-                return m_SparkData.m_SparksContainer[9];
+                return m_SparkData.SparksContainer[9];
             case SparksType.GemRed:
-                return m_SparkData.m_SparksContainer[10];
+                return m_SparkData.SparksContainer[10];
             case SparksType.GemGreen:
-                return m_SparkData.m_SparksContainer[11];
+                return m_SparkData.SparksContainer[11];
             default:
                 return null;
         }
     }
 
-    public void CalculateScore(int sparkValueDragging, int collidedSparkValue)
+    public void CalculateScore(int sparkValueDragging)
     {
-        InGameScoreText += sparkValueDragging * collidedSparkValue;
+        InGameScoreText += sparkValueDragging;
     }
 }

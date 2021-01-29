@@ -17,6 +17,7 @@ TagManager:
   - GemGreen
   - Star
   - DepressedCharacter
+  - Blackhole
   layers:
   - Default
   - TransparentFX
@@ -57,9 +58,15 @@ TagManager:
   - name: BG
     uniqueID: 1990824051
     locked: 0
-  - name: Sparks
-    uniqueID: 582808471
+  - name: Blackhole
+    uniqueID: 2080881645
     locked: 0
   - name: Character
     uniqueID: 1192536471
+    locked: 0
+  - name: Sparks
+    uniqueID: 582808471
+    locked: 0
+  - name: UISprites
+    uniqueID: 336841679
     locked: 0

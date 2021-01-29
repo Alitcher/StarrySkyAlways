@@ -12,6 +12,8 @@ public class SparksFloating : MonoBehaviour
     [SerializeField] private float m_TotalLerpTime = 2f, m_LerpPercent;
     [SerializeField][Range(0, 2)] private float m_CurrentLerpTime = 0f;
 
+    [SerializeField] private AnimationCurve m_FlyingCurve;
+
 
     void Start()
     {

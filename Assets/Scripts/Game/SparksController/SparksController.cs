@@ -5,7 +5,7 @@ public class SparksController : MonoBehaviour
     private float distance = 10f;
     private Vector3 MousePosition;
     private GameObject m_CollidedSpark;
-    [SerializeField] private GameObject m_SparkIconPreview;
+    [SerializeField] private GameObject m_SparkIconPreview, m_GiftIcon;
     public SparksType m_SparkType;
     public int SparkValue;
 
@@ -15,6 +15,8 @@ public class SparksController : MonoBehaviour
     private void Awake()
     {
         m_SparkIconPreview = (m_SparkType != SparksType.Star) ? transform.GetChild(0).gameObject : null;
+        m_GiftIcon = (m_SparkType != SparksType.Star) ? transform.GetChild(1).gameObject : transform.GetChild(0).gameObject;
+        m_GiftIcon.SetActive(false);
         m_SparkIconPreview?.SetActive(false);
         m_SparkData = GameObject.FindObjectOfType<SparksData>();
         m_Controller = GameObject.FindObjectOfType<GameControlManager>();
@@ -66,7 +68,7 @@ public class SparksController : MonoBehaviour
         }
     }
 
-    private bool IsDragging, IsReleasingObj, IsCollidingWiththeMatched;
+    private bool IsDragging, IsCollidingWiththeMatched;
 
     private void OnMouseDrag()
     {
@@ -76,7 +78,7 @@ public class SparksController : MonoBehaviour
         IsDragging = true;
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.tag == this.tag)
         {
@@ -89,27 +91,42 @@ public class SparksController : MonoBehaviour
             }
         }
 
+        if (collision.tag == "DepressedCharacter")
+        {
+            m_GiftIcon.SetActive(true);
+            m_CollidedSpark = this.gameObject;
+        }
 
+        if (collision.tag == "Blackhole")
+        {
+
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         m_SparkIconPreview?.SetActive(false);
+        m_GiftIcon.SetActive(false);
         m_CollidedSpark = null;
     }
 
     private void OnMouseUp()
     {
         IsDragging = false;
-        IsReleasingObj = true;
 
         if (m_SparkType != SparksType.Star)
         {
             if (m_SparkIconPreview.activeSelf && null != m_CollidedSpark)
             {
-                m_Controller.CalculateScore(SparkValue, m_CollidedSpark.GetComponent<SparksController>().SparkValue);
+                m_Controller.CalculateScore(SparkValue);
                 m_Controller.MergeObject(this.gameObject, m_CollidedSpark);
             }
+        }
+
+        if (m_GiftIcon.activeSelf)
+        {
+            m_Controller.CalculateScore(SparkValue);
+            m_Controller.GiveSparkToCharacter(this.gameObject);
         }
 
     }
