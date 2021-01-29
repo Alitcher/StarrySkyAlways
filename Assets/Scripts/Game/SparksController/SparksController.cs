@@ -14,8 +14,8 @@ public class SparksController : MonoBehaviour
 
     private void Awake()
     {
-        m_SparkIconPreview = (m_SparkType != SparksType.Star) ? transform.GetChild(0).gameObject : null;
-        m_GiftIcon = (m_SparkType != SparksType.Star) ? transform.GetChild(1).gameObject : transform.GetChild(0).gameObject;
+        m_SparkIconPreview = (m_SparkType != SparksType.StarLv12) ? transform.GetChild(0).gameObject : null;
+        m_GiftIcon = (m_SparkType != SparksType.StarLv12) ? transform.GetChild(1).gameObject : transform.GetChild(0).gameObject;
         m_GiftIcon.SetActive(false);
         m_SparkIconPreview?.SetActive(false);
         m_SparkData = GameObject.FindObjectOfType<SparksData>();
@@ -27,40 +27,40 @@ public class SparksController : MonoBehaviour
     {
         switch (m_SparkType)
         {
-            case SparksType.Rock:
+            case SparksType.StarLv1:
                 SparkValue = 1;
                 break;
-            case SparksType.MoonGold:
+            case SparksType.StarLv2:
                 SparkValue = 2;
                 break;
-            case SparksType.MoonWhite:
+            case SparksType.StarLv3:
                 SparkValue = 4;
                 break;
-            case SparksType.HeartRed:
+            case SparksType.StarLv4:
                 SparkValue = 8;
                 break;
-            case SparksType.HeartBlack:
+            case SparksType.StarLv5:
                 SparkValue = 16;
                 break;
-            case SparksType.AppleRed:
+            case SparksType.StarLv6:
                 SparkValue = 32;
                 break;
-            case SparksType.AppleBlack:
+            case SparksType.StarLv7:
                 SparkValue = 64;
                 break;
-            case SparksType.CherryRed:
+            case SparksType.StarLv8:
                 SparkValue = 128;
                 break;
-            case SparksType.CherryBlack:
+            case SparksType.StarLv9:
                 SparkValue = 256;
                 break;
-            case SparksType.GemRed:
+            case SparksType.StarLv10:
                 SparkValue = 512;
                 break;
-            case SparksType.GemGreen:
+            case SparksType.StarLv11:
                 SparkValue = 1024;
                 break;
-            case SparksType.Star:
+            case SparksType.StarLv12:
                 SparkValue = 2048;
                 break;
             default:
@@ -91,7 +91,7 @@ public class SparksController : MonoBehaviour
             }
         }
 
-        if (collision.tag == "DepressedCharacter")
+        if (collision.tag == "DepressedCharacter" && IsDragging)
         {
             m_GiftIcon.SetActive(true);
             m_CollidedSpark = this.gameObject;
@@ -99,7 +99,8 @@ public class SparksController : MonoBehaviour
 
         if (collision.tag == "Blackhole")
         {
-
+            m_Controller.CalculateScore(-SparkValue);
+            Destroy(this.gameObject);
         }
     }
 
@@ -114,7 +115,7 @@ public class SparksController : MonoBehaviour
     {
         IsDragging = false;
 
-        if (m_SparkType != SparksType.Star)
+        if (m_SparkType != SparksType.StarLv12)
         {
             if (m_SparkIconPreview.activeSelf && null != m_CollidedSpark)
             {
