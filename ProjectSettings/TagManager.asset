@@ -4,20 +4,20 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Rock
-  - MoonGold
-  - MoonWhite
-  - HeartRed
-  - HeartBlack
-  - AppleRed
-  - AppleBlack
-  - CherryRed
-  - CherryBlack
-  - GemRed
-  - GemGreen
-  - Star
   - DepressedCharacter
   - Blackhole
+  - StarLv1
+  - StarLv2
+  - StarLv3
+  - StarLv4
+  - StarLv5
+  - StarLv6
+  - StarLv7
+  - StarLv8
+  - StarLv9
+  - StarLv10
+  - StarLv11
+  - StarLv12
   layers:
   - Default
   - TransparentFX
