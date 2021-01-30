@@ -6,20 +6,26 @@ public class SparksData: MonoBehaviour
     public GameObject Blackhole;
 
 }
+public enum GameProgress
+{
+    Early,
+    Middle,
+    Late
+}
 
 public enum SparksType
 {
-    Rock,
-    MoonGold,
-    MoonWhite,
-    HeartRed,
-    HeartBlack,
-    AppleRed,
-    AppleBlack,
-    CherryRed,
-    CherryBlack,
-    GemRed,
-    GemGreen,
-    Star
+    StarLv1,
+    StarLv2,
+    StarLv3,
+    StarLv4,
+    StarLv5,
+    StarLv6,
+    StarLv7,
+    StarLv8,
+    StarLv9,
+    StarLv10,
+    StarLv11,
+    StarLv12
 }
 

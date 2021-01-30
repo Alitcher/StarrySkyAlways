@@ -43,3 +43,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee0f1ffb3a2fb9045af8adc7575c31f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SparkType: 0
+  m_SparkData: {fileID: 0}
+  m_TimeCountDefault: 60
+  m_SpawnSparksTimeCount: 10
+  m_SpawnAmount: 20
+  m_SparksTypeSceneAmount: 0f0000000f0000000a000000090000000800000007000000060000000500000004000000030000000200000001000000
+  m_SparkSpawnPoint: {fileID: 0}
