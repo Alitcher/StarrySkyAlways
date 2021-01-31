@@ -13,7 +13,6 @@ public class UIGameManager : MonoBehaviour
     [SerializeField] private Button m_MenuButton;
     [SerializeField] private GameObject m_GameOverPanel;
     [SerializeField] private Animator m_textAnimator;
-    [SerializeField] private AnimationCurve m_textAnimationCurve;
 
     int scoreDisplay;
     int scoreStore;
