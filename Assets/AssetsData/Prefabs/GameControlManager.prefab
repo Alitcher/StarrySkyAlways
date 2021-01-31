@@ -45,10 +45,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpawnFieldEndlessLevelPrefab: {fileID: 8808657939878941652, guid: 1e55b3daf0be4364ea71bb186f128b69,
     type: 3}
+  DestroyGroup: {fileID: 0}
+  BoundObject:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   m_SparkType: 0
-  m_SparkData: {fileID: 325776669083150176, guid: 1d209f69ea35b6549929cab4e81bf68e,
-    type: 3}
+  m_SparkData: {fileID: 0}
   m_TimeCountDefault: 60
   m_SpawnSparksTimeCount: 5
+  m_RespawnDelay: 0
   m_SpawnAmount: 20
   m_SparksTypeSceneAmount: 0f0000000f0000000a000000090000000800000007000000060000000500000004000000030000000200000001000000
+  m_SparksInGameCount: []

@@ -9,8 +9,21 @@ public class SparksController : MonoBehaviour
     public SparksType m_SparkType;
     public int SparkValue;
 
+    public ParticleSystem PermanentStar;
+    public ParticleSystem[] PermanentStarSystem;
+    public ParticleSystem EmergeSystem;
+    public ParticleSystem ExpireSystem;
+
+    public Collider2D StarCollider;
+
+    private float DestroyTimer;
+    private bool ReadyToDestroy = false;
+
     private SparksData m_SparkData;
     private GameControlManager m_Controller;
+
+    Vector3 PullPosition;
+    float GravityStack;
 
     private void Awake()
     {
@@ -20,6 +33,9 @@ public class SparksController : MonoBehaviour
         m_SparkIconPreview?.SetActive(false);
         m_SparkData = GameObject.FindObjectOfType<SparksData>();
         m_Controller = GameObject.FindObjectOfType<GameControlManager>();
+        DestroyTimer = 5f;
+        GravityStack = 0f;
+        ReadyToDestroy = false;
         AssignSparksValue();
     }
 
@@ -72,10 +88,14 @@ public class SparksController : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        MousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, distance);
-        Vector3 objPosTobe = Camera.main.ScreenToWorldPoint(MousePosition);
-        transform.position = objPosTobe;
-        IsDragging = true;
+        if (ReadyToDestroy == false)
+        {
+            MousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, distance);
+            Vector3 objPosTobe = Camera.main.ScreenToWorldPoint(MousePosition);
+            transform.position = objPosTobe;
+            IsDragging = true;
+            GravityStack = 0f;
+        }
     }
 
     public void OnTriggerStay2D(Collider2D collision)
@@ -100,7 +120,17 @@ public class SparksController : MonoBehaviour
         if (collision.tag == "Blackhole")
         {
             m_Controller.CalculateScore(-SparkValue);
-            Destroy(this.gameObject);
+            m_Controller.LostSpark();
+            m_SparkIconPreview?.SetActive(false);
+            m_GiftIcon.SetActive(false);
+            SparkExpire();
+        }
+
+        if (collision.tag == "EventHorizon")
+        {
+            GravityStack += 1f;
+            PullPosition = Vector3.MoveTowards(this.transform.position, m_Controller.BlackHoleObject.transform.position, 0.00005f * GravityStack * m_Controller.BlackHolePower);
+            this.transform.position = PullPosition;
         }
     }
 
@@ -109,6 +139,11 @@ public class SparksController : MonoBehaviour
         m_SparkIconPreview?.SetActive(false);
         m_GiftIcon.SetActive(false);
         m_CollidedSpark = null;
+
+        if (collision.tag == "EventHorizon")
+        {
+            GravityStack = 0f;
+        }
     }
 
     private void OnMouseUp()
@@ -130,6 +165,37 @@ public class SparksController : MonoBehaviour
             m_Controller.GiveSparkToCharacter(this.gameObject);
         }
 
+    }
+
+    private void Update()
+    {
+        if (ReadyToDestroy == true)
+        {
+            DestroyTimer -= Time.deltaTime;
+        }
+        if (DestroyTimer <= 0)
+        {
+            Debug.Log("Destroy");
+            Destroy(this);
+        }
+    }
+
+    public void SparkExpire()
+    {
+        PermanentStar.Clear();
+        for(int i = 0; i < PermanentStarSystem.Length; i++)
+        {
+            if (PermanentStarSystem[i] != null)
+            {
+                PermanentStarSystem[i].Stop();
+            }
+        }
+        EmergeSystem.Stop();
+        ExpireSystem.gameObject.SetActive(true);
+        ExpireSystem.Play();
+        StarCollider.enabled = false;
+        DestroyTimer = 5f;
+        ReadyToDestroy = true;
     }
 
 }

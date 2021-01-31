@@ -52,6 +52,15 @@ MonoBehaviour:
   m_GiftIcon: {fileID: 0}
   m_SparkType: 8
   SparkValue: 0
+  PermanentStar: {fileID: 3141268782814742981}
+  PermanentStarSystem:
+  - {fileID: 3141268782551048148}
+  - {fileID: 3141268784150952897}
+  - {fileID: 3141268783496426314}
+  - {fileID: 3141268782757858710}
+  EmergeSystem: {fileID: 3141268784287136292}
+  ExpireSystem: {fileID: 3141268782846232089}
+  StarCollider: {fileID: 61841739777538050}
 --- !u!61 &61841739777538050
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -24043,6 +24052,48 @@ PrefabInstance:
 --- !u!4 &3141268782451483548 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8869798129118322158, guid: 5840987991e4db04b821c016ed920e8f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5805101677183696498}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &3141268782551048148 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8869798129167524262, guid: 5840987991e4db04b821c016ed920e8f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5805101677183696498}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &3141268784150952897 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8869798127563556275, guid: 5840987991e4db04b821c016ed920e8f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5805101677183696498}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &3141268782814742981 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8869798128895440823, guid: 5840987991e4db04b821c016ed920e8f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5805101677183696498}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &3141268783496426314 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8869798128016756024, guid: 5840987991e4db04b821c016ed920e8f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5805101677183696498}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &3141268782757858710 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8869798128887313380, guid: 5840987991e4db04b821c016ed920e8f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5805101677183696498}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &3141268784287136292 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8869798127431566422, guid: 5840987991e4db04b821c016ed920e8f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5805101677183696498}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &3141268782846232089 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8869798128658430059, guid: 5840987991e4db04b821c016ed920e8f,
     type: 3}
   m_PrefabInstance: {fileID: 5805101677183696498}
   m_PrefabAsset: {fileID: 0}
