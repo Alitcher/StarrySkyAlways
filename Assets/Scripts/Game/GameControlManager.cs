@@ -15,6 +15,7 @@ public class GameControlManager : MonoBehaviour
     public float BlackHolePower;
 
     bool fullSpark = false;
+    public bool GameOverStats;
     int boundIndex;
     int starIndex;
     int Loop;
@@ -44,6 +45,7 @@ public class GameControlManager : MonoBehaviour
         InGameTimeCount = m_TimeCountDefault;
         SpawnSparksTimeCount = m_SpawnSparksTimeCount;
         IsGameOver = false;
+        GameOverStats = false;
         fullSpark = false;
         SpawnFieldEndlessLevelScene = Instantiate(SpawnFieldEndlessLevelPrefab, Vector3.zero, Quaternion.identity);
         SpawnFieldEndlessLevelScene.name = SpawnFieldEndlessLevelPrefab.name;
@@ -88,6 +90,7 @@ public class GameControlManager : MonoBehaviour
         {
             InGameTimeCount = 0f;
             IsGameOver = true;
+            GameOverStats = true;
 
         }
 

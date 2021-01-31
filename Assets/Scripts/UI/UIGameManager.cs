@@ -7,12 +7,12 @@ using UnityEngine.SceneManagement;
 
 public class UIGameManager : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI m_ScoreHeaderText, m_ScoreNumText, m_ScoreIncrementText;
+    [SerializeField] private TextMeshProUGUI m_ScoreHeaderText, m_ScoreNumText, m_ScoreIncrementText, m_FinalTimeText, m_FinalScoreText;
     [SerializeField] private TextMeshProUGUI m_TimeHeaderText, m_TimeNumText;
     [SerializeField] private Image m_TimerImage;
-    [SerializeField] private Button m_MenuButton;
-    [SerializeField] private GameObject m_GameOverPanel;
-    [SerializeField] private Animator m_textAnimator;
+    [SerializeField] private Button m_MenuButton, m_ReplayButton;
+    [SerializeField] private GameObject m_GameOverPanel, m_GameSessionPanel;
+    [SerializeField] private Animator m_textAnimator, m_gameOverAnimator;
 
     int scoreDisplay;
     int scoreStore;
@@ -50,7 +50,7 @@ public class UIGameManager : MonoBehaviour
 
         m_ScoreNumText.text = GameControlManager.InGameScoreCount.ToString();
 
-        timeText = Mathf.CeilToInt(GameControlManager.InGameTimeCount);
+        timeText = Mathf.RoundToInt(GameControlManager.InGameTimeCount);
         m_TimeNumText.text = timeText.ToString();
 
         timeAmount = GameControlManager.InGameTimeCount / 60f;
@@ -69,11 +69,22 @@ public class UIGameManager : MonoBehaviour
     void ActivePastGamePanel()
     {
         //GameObject GameoverPanel = Instantiate(m_GameOverPanel, GetComponent<RectTransform>());
+        m_GameSessionPanel.SetActive(false);
+
+        m_FinalScoreText.text = GameControlManager.InGameScoreCount.ToString();
+        timeText = Mathf.RoundToInt(GameControlManager.PlayerPlaysTimeCount);
+        m_FinalTimeText.text = timeText.ToString();
         m_GameOverPanel.SetActive(true);
+        m_gameOverAnimator.Play("GameOver");
     }
     public void BackToMenu()
     {
         SceneManager.LoadScene("Menu");
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene("Gameplay");
     }
 
 }

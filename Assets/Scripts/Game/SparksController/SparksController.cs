@@ -169,6 +169,13 @@ public class SparksController : MonoBehaviour
 
     private void Update()
     {
+        if (m_Controller.GameOverStats == true)
+        {
+            if (ReadyToDestroy == false)
+            {
+                SparkExpire();
+            }
+        }
         if (ReadyToDestroy == true)
         {
             DestroyTimer -= Time.deltaTime;
