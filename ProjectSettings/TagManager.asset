@@ -18,6 +18,8 @@ TagManager:
   - StarLv10
   - StarLv11
   - StarLv12
+  - Border
+  - EventHorizon
   layers:
   - Default
   - TransparentFX

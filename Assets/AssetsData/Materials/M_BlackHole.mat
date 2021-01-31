@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_RingAdd
-  m_Shader: {fileID: 4800000, guid: b5401413f595860439f9aedddeff356a, type: 3}
-  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
+  m_Name: M_BlackHole
+  m_Shader: {fileID: 4800000, guid: 41d166b2e5bdad04c869fc473faa9b28, type: 3}
+  m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -24,7 +24,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_E164F985:
-        m_Texture: {fileID: 2800000, guid: 7c2051d49d7700742a5466e91bb55d51, type: 3}
+        m_Texture: {fileID: 2800000, guid: b4aafeedb2d5b064f9450a544010b1ab, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -53,7 +53,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Vector1_9AABB9D6: 2
-    - Vector1_FF5BD431: 0
+    - Vector1_FF5BD431: 0.01
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -73,10 +73,11 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Vector2_224E0B2A: {r: 1, g: 1, b: 1, a: 0}
-    - Vector2_59C8A9BB: {r: 0.1, g: 0.1, b: 0, a: 0}
+    - Vector2_224E0B2A: {r: 2, g: 2, b: 0, a: 0}
+    - Vector2_59C8A9BB: {r: 0.25, g: 0.1, b: 0, a: 0}
+    - Vector2_6565B78F: {r: 0.5, g: 3, b: 0, a: 0}
     - Vector2_E39AE5EF: {r: 0, g: 0, b: 0, a: 0}
-    - Vector3_5681FF5: {r: 0, g: 0, b: 1, a: 0}
+    - Vector3_5681FF5: {r: 0, g: 1, b: 0, a: 0}
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
