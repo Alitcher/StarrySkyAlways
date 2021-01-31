@@ -7,7 +7,11 @@ public class MenuUIManager : MonoBehaviour
 {
     [SerializeField] private GameObject m_PlayButton, m_HelpButton, m_CreditsButton, m_QuitButton;
     [SerializeField] private GameObject m_HelpPanel, m_CreditPanel;
+    [SerializeField] private GameObject m_SoundManager;
 
+    public AudioSource[] Sound;
+
+    private SoundName m_SoundName;
 
     private void Awake()
     {
@@ -54,5 +58,9 @@ public class MenuUIManager : MonoBehaviour
     public void OnClickQuitButton()
     {
         Application.Quit();
+    }
+    public void BtnClick()
+    {
+        Sound[0].Play();
     }
 }

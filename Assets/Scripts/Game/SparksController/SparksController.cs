@@ -124,6 +124,7 @@ public class SparksController : MonoBehaviour
             m_SparkIconPreview?.SetActive(false);
             m_GiftIcon.SetActive(false);
             SparkExpire();
+            m_Controller.Sound[4].Play();
         }
 
         if (collision.tag == "EventHorizon")

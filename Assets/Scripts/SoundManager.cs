@@ -31,18 +31,13 @@ public class SoundManager : MonoBehaviour {
         s.source.pitch = pitch;
     }
 
-    public void play(string name)
+    public void Play(string name)
     {
-
         SoundClass s = Array.Find(Sounds , Sound => Sound.name == name);
-       // print("ss");
-        s.source.Play();
-
         if (s == null)
-        {
-            Debug.LogWarning("Sound: "+ name +" not found...");
             return;
-        }
+
+        s.source.Play();
     }
 
     public void Play2(string name)
@@ -54,7 +49,8 @@ public class SoundManager : MonoBehaviour {
             Debug.LogWarning("Sound: " + name + " not found...");
             return;
         }
-        if (s.source.isPlaying == false) {
+        if (s.source.isPlaying == false)
+        {
             s.source.Play();
         }
         

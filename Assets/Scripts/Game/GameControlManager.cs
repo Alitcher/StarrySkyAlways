@@ -8,6 +8,7 @@ public class GameControlManager : MonoBehaviour
     public GameObject SpawnFieldEndlessLevelPrefab;
     public Transform DestroyGroup;
     public Transform[] BoundObject;
+    public AudioSource[] Sound;
 
     public GameObject BlackHoleObject;
     public GameObject blackHoleWarningObject;
@@ -343,6 +344,7 @@ public class GameControlManager : MonoBehaviour
 
     public void MergeObject(GameObject currentDraggingSpark, GameObject collidedSpark)
     {
+        Sound[1].Play();
         currentDraggingSpark.GetComponent<BoxCollider2D>().enabled = false;
         collidedSpark.GetComponent<BoxCollider2D>().enabled = false;
 
@@ -365,6 +367,7 @@ public class GameControlManager : MonoBehaviour
 
     public void GiveSparkToCharacter(GameObject currentDraggingSpark)
     {
+        Sound[2].Play();
         currentDraggingSpark.GetComponent<BoxCollider2D>().enabled = false;
         IncrementTime(currentDraggingSpark);
         currentDraggingSpark.GetComponent<SparksController>().SparkExpire();
@@ -376,7 +379,6 @@ public class GameControlManager : MonoBehaviour
     public void LostSpark()
     {
         starCount -= 1;
-
         if (starCount <= (m_SpawnAmount / 5) + (Loop / 2))
         {
             fullSpark = false;
@@ -433,5 +435,10 @@ public class GameControlManager : MonoBehaviour
         {
             InGameTimeCount = 60f;
         }
+    }
+
+    public void BtnClick()
+    {
+        Sound[3].Play();
     }
 }
