@@ -67,9 +67,9 @@ public class GameControlManager : MonoBehaviour
 
     private void CheckGameState()
     {
-        if (PlayerPlaysTimeCount > 80f)
+        if (PlayerPlaysTimeCount > 120f)
             m_Progress = GameProgress.Late;
-        else if (PlayerPlaysTimeCount <= 80f && PlayerPlaysTimeCount > 30f)
+        else if (PlayerPlaysTimeCount <= 120f && PlayerPlaysTimeCount > 60f)
             m_Progress = GameProgress.Middle;
         else
             m_Progress = GameProgress.Early;
@@ -94,9 +94,9 @@ public class GameControlManager : MonoBehaviour
 
         }
 
-        if (RespawnTimeCount <= 0)
+        if (RespawnTimeCount <= 0 && BlackHoleActive == false)
         {
-            if (fullSpark == false)
+            if (fullSpark == false && BlackHoleActive == false)
             {
                 if (SpawnSparksTimeCount <= 0)
                 {
@@ -173,21 +173,102 @@ public class GameControlManager : MonoBehaviour
     public int m_SparkIndex(GameProgress progress)
     {
         int tmp = 0;
+        int index = 0;
         switch (progress)
         {
             case GameProgress.Early:
-                tmp = Random.Range(0, m_SparkData.SparksContainer.Length / 4);
+                tmp = Random.Range(0, 100);
+                if (tmp <= 45)
+                {
+                    index = 0;
+                }
+                else if (tmp > 45 && tmp <= 75)
+                {
+                    index = 1;
+                }
+                else if (tmp > 75 && tmp <= 90)
+                {
+                    index = 2;
+                }
+                else if (tmp > 90 && tmp <= 100)
+                {
+                    index = 3;
+                }
                 break ;
             case GameProgress.Middle:
-                tmp = Random.Range(0, m_SparkData.SparksContainer.Length / 2);
+                tmp = Random.Range(0, 100);
+                if (tmp <= 30)
+                {
+                    index = 0;
+                }
+                else if (tmp > 30 && tmp <= 55)
+                {
+                    index = 1;
+                }
+                else if (tmp > 55 && tmp <= 70)
+                {
+                    index = 2;
+                }
+                else if (tmp > 70 && tmp <= 80)
+                {
+                    index = 3;
+                }
+                else if (tmp > 80 && tmp <= 90)
+                {
+                    index = 4;
+                }
+                else if (tmp > 90 && tmp <= 97)
+                {
+                    index = 5;
+                }
+                else if (tmp > 97 && tmp <= 100)
+                {
+                    index = 6;
+                }
                 break;
             case GameProgress.Late:
-                tmp = Random.Range(m_SparkData.SparksContainer.Length / 2, m_SparkData.SparksContainer.Length);
+                tmp = Random.Range(0, 100);
+                if (tmp <= 26)
+                {
+                    index = 0;
+                }
+                else if (tmp > 26 && tmp <= 42)
+                {
+                    index = 1;
+                }
+                else if (tmp > 42 && tmp <= 58)
+                {
+                    index = 2;
+                }
+                else if (tmp > 58 && tmp <= 74)
+                {
+                    index = 3;
+                }
+                else if (tmp > 74 && tmp <= 82)
+                {
+                    index = 4;
+                }
+                else if (tmp > 82 && tmp <= 90)
+                {
+                    index = 5;
+                }
+                else if (tmp > 90 && tmp <= 94)
+                {
+                    index = 6;
+                }
+                else if (tmp > 94 && tmp <= 98)
+                {
+                    index = 7;
+                }
+                else if (tmp > 98 && tmp <= 100)
+                {
+                    index = 8;
+                }
                 break;
             default:
                 break;
         }
-        return tmp;
+        return index;
     }
 
 
@@ -226,7 +307,11 @@ public class GameControlManager : MonoBehaviour
 
         starCount += 1;
 
-        if (starCount >= m_SpawnAmount + (Loop * m_SpawnAmount / 5))
+        if (starCount >= m_SpawnAmount + (Loop * m_SpawnAmount / 10))
+        {
+            fullSpark = true;
+        }
+        else if (starCount >= 50)
         {
             fullSpark = true;
         }
@@ -334,6 +419,10 @@ public class GameControlManager : MonoBehaviour
     public void CalculateScore(int sparkValueDragging)
     {
         InGameScoreCount += sparkValueDragging;
+        if (InGameScoreCount < 0)
+        {
+            InGameScoreCount = 0;
+        }
     }
 
     public void IncrementTime(GameObject currentDraggingSpark)
