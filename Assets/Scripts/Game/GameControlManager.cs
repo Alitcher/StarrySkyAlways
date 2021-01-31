@@ -337,5 +337,9 @@ public class GameControlManager : MonoBehaviour
     {
         float defaultIncrementValue = 3;
         InGameTimeCount += defaultIncrementValue + 2f*((int)currentDraggingSpark.GetComponent<SparksController>().m_SparkType);
+        if (InGameTimeCount > 60f)
+        {
+            InGameTimeCount = 60f;
+        }
     }
 }

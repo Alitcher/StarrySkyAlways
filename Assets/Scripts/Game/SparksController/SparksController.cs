@@ -175,7 +175,6 @@ public class SparksController : MonoBehaviour
         }
         if (DestroyTimer <= 0)
         {
-            Debug.Log("Destroy");
             Destroy(this);
         }
     }

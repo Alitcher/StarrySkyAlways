@@ -60,6 +60,9 @@ TagManager:
   - name: BG
     uniqueID: 1990824051
     locked: 0
+  - name: Glossary
+    uniqueID: 320479201
+    locked: 0
   - name: Blackhole
     uniqueID: 2080881645
     locked: 0
