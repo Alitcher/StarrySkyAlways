@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - DepressedCharacter
+  - Blackhole
+  - StarLv1
+  - StarLv2
+  - StarLv3
+  - StarLv4
+  - StarLv5
+  - StarLv6
+  - StarLv7
+  - StarLv8
+  - StarLv9
+  - StarLv10
+  - StarLv11
+  - StarLv12
+  - Border
+  - EventHorizon
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: BG
+    uniqueID: 1990824051
+    locked: 0
+  - name: Glossary
+    uniqueID: 320479201
+    locked: 0
+  - name: Blackhole
+    uniqueID: 2080881645
+    locked: 0
+  - name: Character
+    uniqueID: 1192536471
+    locked: 0
+  - name: Sparks
+    uniqueID: 582808471
+    locked: 0
+  - name: UISprites
+    uniqueID: 336841679
+    locked: 0

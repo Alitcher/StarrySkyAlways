@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3894464987190651570
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3114887318204484496}
+  - component: {fileID: 6722220066899139305}
+  m_Layer: 0
+  m_Name: GameControlManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3114887318204484496
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3894464987190651570}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.5853767, y: 9.930252, z: 0.08421051}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6722220066899139305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3894464987190651570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee0f1ffb3a2fb9045af8adc7575c31f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpawnFieldEndlessLevelPrefab: {fileID: 8808657939878941652, guid: 1e55b3daf0be4364ea71bb186f128b69,
+    type: 3}
+  DestroyGroup: {fileID: 0}
+  BoundObject:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  Sound:
+  - {fileID: 0}
+  - {fileID: 0}
+  BlackHoleObject: {fileID: 0}
+  blackHoleWarningObject: {fileID: 0}
+  BlackHoleExpireVFX: {fileID: 0}
+  BlackHolePower: 0
+  GameOverStats: 0
+  m_SparkType: 0
+  m_SparkData: {fileID: 0}
+  m_TimeCountDefault: 60
+  m_SpawnSparksTimeCount: 0.03
+  m_RespawnDelay: 5
+  m_blackHoleDurationMin: 14
+  m_BlackHoleDurationMax: 20
+  m_BlackHoleWarningDuration: 3
+  m_BlackHoleDelayMin: 12
+  m_BlackHoleDelayMax: 18
+  m_SpawnAmount: 30
+  m_SparksTypeSceneAmount: 0f0000000f0000000a000000090000000800000007000000060000000500000004000000030000000200000001000000
+  m_SparksInGameCount: []
